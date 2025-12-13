@@ -117,50 +117,68 @@
 .pink-line {
     background-color: #dec1db;
     height: 5px;
-    width: 300px;
-}
-
-.purple-line {
-    background-color: #5055b6;
-    height: 210px;
-    width: 30px;
+    width: 450px;
+    margin-left: 90px;
 }
 
 .tips-section {
     background-color: #5b61b2;
-    padding: 170px 100px;
+    padding: 130px 100px;
 }
 
 .tips-section h1 {
     color: #dec1db;
     font-family: 'Playfair Display', serif;
-    font-size: 90px;
+    font-size: 80px;
     margin-bottom: 10px;
     text-align: center;
 }
 
-.top-1 {
-    margin-top: 50px;
+.tips-list {
     display: flex;
+    gap: 50px;
+}
+
+.top-1,
+.top-2,
+.top-3 {
+    margin-top: 50px;
     align-items: center;
     gap: 100px;
-    padding: 0 50px;
+    padding: 30px;
+    border: white 2px solid;
+    transition: all ease 0.3s;
+    border-radius: 10px;
 }
 
-.top-1 h1 {
+.top-1:hover,
+.top-2:hover,
+.top-3:hover {
+    transform: translateY(-3px); 
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.top-1 h1,
+.top-2 h1,
+.top-3 h1 {
     font-family: "Moon Dance", cursive;
-    font-size: 200px;
+    font-size: 70px;
     color: #EFD968;
+    text-align: left;
 }
 
-.top-1 h2 {
+.top-1 h2,
+.top-2 h2,
+.top-3 h2 {
     color: #dec1db;
     font-family: 'Playfair Display', serif;
     font-size: 40px;
     margin-bottom: 10px;
 }
 
-.top-1 p {
+.top-1 p,
+.top-2 p,
+.top-3 p {
     color: white;
     font-size: 18px;
 }
@@ -180,6 +198,26 @@
 }
 
 .read-more-bttn:hover {
+    background-color: #dec1db;
+    color: #5b61b2;
+    box-shadow: 0px 2px 7px rgba(255, 255, 255, 0.566);
+}
+
+.top-2 .read-more-bttn {
+    color: white;
+    background: transparent;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 15px;
+    border: white 1px solid;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: all ease 0.3s;
+}
+
+.top-2 .read-more-bttn:hover {
     background-color: #dec1db;
     color: #5b61b2;
     box-shadow: 0px 2px 7px rgba(255, 255, 255, 0.566);

@@ -35,10 +35,25 @@ function SimpleBlog() {
         <div className="tips-list">
           <div className="top-1">
             <h1>01</h1>
-            <div className="purple-line"/>
             <div>
               <h2>Build Small, Consistent Routines</h2>
               <p>Studying, coding, and learning are mentally demanding. Creating small daily routines—like a fixed study start time or a 5-minute planning habit—reduces decision fatigue and stress. Consistency matters more than intensity.</p>
+              <button className="read-more-bttn">Read more</button>
+            </div>
+          </div>
+          <div className="top-2">
+            <h1>02</h1>
+            <div>
+              <h2>Manage Screen Time and Take Intentional Breaks</h2>
+              <p>Long hours in front of screens can lead to mental exhaustion and burnout. Short breaks, eye rest, and stepping away from devices help improve focus, memory, and emotional balance.</p>
+              <button className="read-more-bttn">Read more</button>
+            </div>
+          </div>
+          <div className="top-3">
+            <h1>03</h1>
+            <div>
+              <h2>Prioritize Mental Health Like a Technical Skill</h2>
+              <p>Mental stability is not optional—it’s a foundation. Practicing mindfulness, getting enough sleep, and asking for help when overwhelmed improves problem-solving, learning efficiency, and long-term success in IT.</p>
               <button className="read-more-bttn">Read more</button>
             </div>
           </div>
