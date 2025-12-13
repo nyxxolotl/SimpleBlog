@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Moon+Dance&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.blog-page {
+    background-color: #211832;
+    overflow-x: hidden;
+}
+
+.header {
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    gap: 200px;
+    justify-content: center;
+    background: transparent;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    z-index: 100;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.header p {
+    color: white;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+    font-weight: 600;
+}
+
+.header p:hover {
+    text-shadow: 
+        0 0 6px #FB773C,
+        0 0 12px #FB773C,
+        0 0 25px #EB3678,
+        0 0 35px #EB3678,
+        0 0 55px #4F1787,
+        0 0 75px #4F1787,
+        0 0 90px #180161;
+}
+
+.logo {
+    width: 150px;
+    position: fixed;
+    padding-left: 30px;
+    padding-bottom: 30px;
+    bottom: 10px;
+    cursor: pointer;
+}
+
+.hero {
+    background: url('./pictures/portfolio-bg.svg');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: right;
+    align-items: flex-end;  
+    padding-right: 30px;
+}
+
+.hero-text {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    animation: backInRight; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 2s; /* don't forget to set a duration! */
+}
+
+.hero h1 {
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 110px;
+}
+
+.moon-dance-text {
+    font-family: "Moon Dance", cursive;
+    font-size: 200px;
+    color: #EFD968;
+}
+
+.about-section {
+    background: #dec1db;
+    padding: 70px 100px;
+}
+    
+.about-section h1 {
+    color: #5b61b2;
+    font-family: 'Playfair Display', serif;
+    font-size: 90px;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 200px;
+}
+
+.magenta-line {
+    background-color: #c187bb;
+    height: 150px;
+    width: 50px;
+}
+
+.pink-line {
+    background-color: #dec1db;
+    height: 5px;
+    width: 300px;
+}
+
+.purple-line {
+    background-color: #5055b6;
+    height: 210px;
+    width: 30px;
+}
+
+.tips-section {
+    background-color: #5b61b2;
+    padding: 170px 100px;
+}
+
+.tips-section h1 {
+    color: #dec1db;
+    font-family: 'Playfair Display', serif;
+    font-size: 90px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.top-1 {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    padding: 0 50px;
+}
+
+.top-1 h1 {
+    font-family: "Moon Dance", cursive;
+    font-size: 200px;
+    color: #EFD968;
+}
+
+.top-1 h2 {
+    color: #dec1db;
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.top-1 p {
+    color: white;
+    font-size: 18px;
+}
+
+.read-more-bttn {
+    color: white;
+    background: transparent;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 15px;
+    border: white 1px solid;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: all ease 0.3s;
+}
+
+.read-more-bttn:hover {
+    background-color: #dec1db;
+    color: #5b61b2;
+    box-shadow: 0px 2px 7px rgba(255, 255, 255, 0.566);
+}
