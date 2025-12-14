@@ -9,10 +9,6 @@ function SimpleBlog() {
   const [showTop2Modal, setTop2Modal] = useState(false);
   const [showTop3Modal, setTop3Modal] = useState(false);
 
-  const [showSubTop1Modal, setSubTop1Modal] = useState(false);
-  const [showSubTop2Modal, setSubTop2Modal] = useState(false);
-  const [showSubTop3Modal, setSubTop3Modal] = useState(false);
-
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
   const tipsRef = useRef(null);
@@ -20,25 +16,13 @@ function SimpleBlog() {
   const [activeSection, setActiveSection] = useState("home");
 
   const openTop1Modal = () => { setTop1Modal(true); }
-  const openSubTop1Modal = () => { setSubTop1Modal(true); }
-  const closeTop1Modal = () => { 
-    setTop1Modal(false); 
-    setSubTop1Modal(false);
-  }
+  const closeTop1Modal = () => { setTop1Modal(false); }
 
   const openTop2Modal = () => { setTop2Modal(true); }
-  const openSubTop2Modal = () => { setSubTop2Modal(true); }
-  const closeTop2Modal = () => { 
-    setTop2Modal(false); 
-    setSubTop2Modal(false);
-  }
+  const closeTop2Modal = () => { setTop2Modal(false); }
 
   const openTop3Modal = () => { setTop3Modal(true); }
-  const openSubTop3Modal = () => { setSubTop3Modal(true); }
-  const closeTop3Modal = () => { 
-    setTop3Modal(false); 
-    setSubTop3Modal(false);
-  }
+  const closeTop3Modal = () => { setTop3Modal(false); }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,7 +54,7 @@ function SimpleBlog() {
 
   // Lock scrolling when any modal is open
   useEffect(() => {
-    if (showTop1Modal || showTop2Modal || showTop3Modal || showSubTop1Modal || showSubTop2Modal || showSubTop3Modal) {
+    if (showTop1Modal || showTop2Modal || showTop3Modal) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
@@ -78,7 +62,7 @@ function SimpleBlog() {
     return () => {
       document.body.style.overflow = "auto";
     };
-  }, [showTop1Modal, showTop2Modal, showTop3Modal, showSubTop1Modal, showSubTop2Modal, showSubTop3Modal]);
+  }, [showTop1Modal, showTop2Modal, showTop3Modal]);
 
   return (
     <div className="blog-page">
@@ -132,7 +116,7 @@ function SimpleBlog() {
             <div>
               <h2>Build Small, Consistent Routines</h2>
               <p>Studying, coding, and learning are mentally demanding. Creating small daily routines—like a fixed study start time or a 5-minute planning habit—reduces decision fatigue and stress. Consistency matters more than intensity.</p>
-              <button className="learn-more-bttn" onClick={openTop1Modal}>Learn more</button>
+              <button className="tips-bttn" onClick={openTop1Modal}>Tips <NavigateNextIcon /></button>
             </div>
           </div>
           <div className="top-2">
@@ -140,7 +124,7 @@ function SimpleBlog() {
             <div>
               <h2>Manage Screen Time and Take Intentional Breaks</h2>
               <p>Long hours in front of screens can lead to mental exhaustion and burnout. Short breaks, eye rest, and stepping away from devices help improve focus, memory, and emotional balance.</p>
-              <button className="learn-more-bttn" onClick={openTop2Modal}>Learn more</button>
+              <button className="tips-bttn" onClick={openTop2Modal}>Tips <NavigateNextIcon /></button>
             </div>
           </div>
           <div className="top-3">
@@ -148,7 +132,7 @@ function SimpleBlog() {
             <div>
               <h2>Prioritize Mental Health Like a Technical Skill</h2>
               <p>Mental stability is not optional—it’s a foundation. Practicing mindfulness, getting enough sleep, and asking for help when overwhelmed improves problem-solving, learning efficiency, and long-term success in IT.</p>
-              <button className="learn-more-bttn" onClick={openTop3Modal}>Learn more</button>
+              <button className="tips-bttn" onClick={openTop3Modal}>Tips <NavigateNextIcon /></button>
             </div>
           </div>
         </div>
@@ -157,20 +141,7 @@ function SimpleBlog() {
         {showTop1Modal && (
           <div className="modal-overlay" onClick={closeTop1Modal}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <span onClick={closeTop1Modal}>Close</span>
-              <h1>Build Small, Consistent Routines</h1>
-              <p>Creating simple habits that protect your mental energy helps to avoid ending up overworking or burning out—especially as an IT student.</p>
-              <button className="next-bttn" onClick={openSubTop1Modal}>
-                Proceed to tips <NavigateNextIcon />
-              </button>
-            </div>
-          </div>
-        )}
-
-        {showSubTop1Modal && (
-          <div className="sub-modal-overlay" onClick={closeTop1Modal}>
-            <div className="sub-modal-content" onClick={(e) => e.stopPropagation()}>
-              <span onClick={closeTop1Modal}>Close</span>
+              <div className="close-modal-area"><span onClick={closeTop1Modal}>Close</span></div>
               <h3>1. Set a Fixed Start and Stop Time</h3>
               <p>Choose a regular time to start studying or coding—and more importantly, a time to stop. This helps prevent overworking and protects your personal time.</p>
               <h3>2. Break Tasks into Small Sessions</h3>
@@ -181,7 +152,6 @@ function SimpleBlog() {
               <p>List only 3–5 tasks per day. Keeping your plan small avoids overwhelm and makes progress feel achievable.</p>
               <h3>5. Create a “Shutdown” Routine</h3>
               <p>End your day with a short routine—review what you’ve done, prepare tasks for tomorrow, then step away from screens. This helps your brain rest and improves sleep quality.</p>
-              <p></p>
             </div>
           </div>
         )}
@@ -190,31 +160,17 @@ function SimpleBlog() {
         {showTop2Modal && (
           <div className="modal-overlay" onClick={closeTop2Modal}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <span onClick={closeTop2Modal}>Close</span>
-              <h1>Manage Screen Time and Take Intentional Breaks</h1>
-              <p>Creating simple habits that protect your mental energy helps to avoid ending up overworking or burning out—especially as an IT student.</p>
-              <button className="next-bttn" onClick={openSubTop2Modal}>
-                Proceed to tips <NavigateNextIcon />
-              </button>
-            </div>
-          </div>
-        )}
-
-        {showSubTop2Modal && (
-          <div className="sub-modal-overlay" onClick={closeTop2Modal}>
-            <div className="sub-modal-content" onClick={(e) => e.stopPropagation()}>
-              <span onClick={closeTop2Modal}>Close</span>
-              <h3>1. Set a Fixed Start and Stop Time</h3>
-              <p>Choose a regular time to start studying or coding—and more importantly, a time to stop. This helps prevent overworking and protects your personal time.</p>
-              <h3>2. Break Tasks into Small Sessions</h3>
-              <p>Instead of long, exhausting study hours, work in short sessions (25–50 minutes) with brief breaks. Small sessions are easier to maintain and reduce mental fatigue.</p>
-              <h3>3. Add a Non-Academic Daily Habit</h3>
-              <p>Include at least one habit unrelated to IT—like walking, stretching, listening to music, or journaling. This helps your mind reset and prevents burnout.</p>
-              <h3>4. Use a Simple Daily Plan</h3>
-              <p>List only 3–5 tasks per day. Keeping your plan small avoids overwhelm and makes progress feel achievable.</p>
-              <h3>5. Create a “Shutdown” Routine</h3>
-              <p>End your day with a short routine—review what you’ve done, prepare tasks for tomorrow, then step away from screens. This helps your brain rest and improves sleep quality.</p>
-              <p></p>
+              <div className="close-modal-area"><span onClick={closeTop2Modal}>Close</span></div>
+              <h3>1. Use Time-Based Study Sessions</h3>
+              <p>Study or code in short, focused blocks (25–50 minutes), then take a 5–10 minute break. This prevents mental fatigue and helps maintain concentration.</p>
+              <h3>2. Set Break Reminders</h3>
+              <p>Use alarms, timers, or productivity apps to remind yourself to stand up, stretch, or rest your eyes—especially during long coding sessions.</p>
+              <h3>3. Take Active Breaks</h3>
+              <p>Avoid staying on your phone during breaks. Instead, stretch, walk, drink water, or do light movement to help your body and mind recover.</p>
+              <h3>4. Limit Non-Essential Screen Use</h3>
+              <p>Reduce unnecessary screen time like excessive social media or gaming after long academic sessions. This helps your brain truly rest.</p>
+              <h3>5. Protect Your Night Routine</h3>
+              <p>Avoid screens at least 30–60 minutes before sleeping. This improves sleep quality and supports better mental stability the next day.</p>
             </div>
           </div>
         )}
@@ -222,32 +178,20 @@ function SimpleBlog() {
         {/* NO 3 ------------- */}
         {showTop3Modal && (
           <div className="modal-overlay" onClick={closeTop3Modal}>
-            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <span onClick={closeTop3Modal}>Close</span>
-              <h1>Prioritize Mental Health Like a Technical Skill</h1>
-              <p>Creating simple habits that protect your mental energy helps to avoid ending up overworking or burning out—especially as an IT student.</p>
-              <button className="next-bttn" onClick={openSubTop3Modal}>
-                Proceed to tips <NavigateNextIcon />
-              </button>
-            </div>
-          </div>
-        )}
-
-        {showSubTop3Modal && (
-          <div className="sub-modal-overlay" onClick={closeTop3Modal}>
-            <div className="sub-modal-content" onClick={(e) => e.stopPropagation()}>
-              <span onClick={closeTop3Modal}>Close</span>
-              <h3>1. Set a Fixed Start and Stop Time</h3>
-              <p>Choose a regular time to start studying or coding—and more importantly, a time to stop. This helps prevent overworking and protects your personal time.</p>
-              <h3>2. Break Tasks into Small Sessions</h3>
-              <p>Instead of long, exhausting study hours, work in short sessions (25–50 minutes) with brief breaks. Small sessions are easier to maintain and reduce mental fatigue.</p>
-              <h3>3. Add a Non-Academic Daily Habit</h3>
-              <p>Include at least one habit unrelated to IT—like walking, stretching, listening to music, or journaling. This helps your mind reset and prevents burnout.</p>
-              <h3>4. Use a Simple Daily Plan</h3>
-              <p>List only 3–5 tasks per day. Keeping your plan small avoids overwhelm and makes progress feel achievable.</p>
-              <h3>5. Create a “Shutdown” Routine</h3>
-              <p>End your day with a short routine—review what you’ve done, prepare tasks for tomorrow, then step away from screens. This helps your brain rest and improves sleep quality.</p>
-              <p></p>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{ width: "1000px"}}>
+              <div className="close-modal-area"><span onClick={closeTop3Modal}>Close</span></div>
+              <h3>1. Treat Mental Health as a Skill to Practice</h3>
+              <p>Just like coding, mental health improves with practice. Set time to reflect, manage stress, and rest—these are skills, not weaknesses.</p>
+              <h3>2. Normalize Asking for Help</h3>
+              <p>Debugging alone is hard—and so is handling stress alone. Talk to friends, classmates, mentors, or counselors when things feel overwhelming.</p>
+              <h3>3. Get Enough Sleep</h3>
+              <p>Sleep directly affects focus, memory, and problem-solving. Protect your sleep schedule as seriously as you protect project deadlines.</p>
+              <h3>4. Practice Mindfulness or Self-Check-Ins</h3>
+              <p>Take a few minutes each day to check how you’re feeling. Simple breathing exercises or journaling can reduce anxiety and mental overload.</p>
+              <h3>5. Set Realistic Expectations</h3>
+              <p>Not every task has to be perfect. Learn to set achievable goals and accept progress over perfection to avoid burnout.</p>
+              <h3>6. Separate Your Identity from Your Output</h3>
+              <p>Your worth is not defined by grades, bugs, or failed projects. Mistakes are part of learning—not a reflection of your value.</p>
             </div>
           </div>
         )}
