@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useRef } from "react";
 import "./SimpleBlog.css";
 import mari from "./pictures/asdffwww.png";
 import 'animate.css'; 
@@ -12,6 +12,12 @@ function SimpleBlog() {
   const [showSubTop1Modal, setSubTop1Modal] = useState(false);
   const [showSubTop2Modal, setSubTop2Modal] = useState(false);
   const [showSubTop3Modal, setSubTop3Modal] = useState(false);
+
+  const homeRef = useRef(null);
+  const aboutRef = useRef(null);
+  const tipsRef = useRef(null);
+
+  const [activeSection, setActiveSection] = useState("home");
 
   const openTop1Modal = () => { setTop1Modal(true); }
   const openSubTop1Modal = () => { setSubTop1Modal(true); }
@@ -34,6 +40,34 @@ function SimpleBlog() {
     setSubTop3Modal(false);
   }
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 200;
+
+      const sections = [
+        { id: "home", ref: homeRef },
+        { id: "about", ref: aboutRef },
+        { id: "tips", ref: tipsRef }
+      ];
+
+      let currentSection = "home";
+
+      sections.forEach(section => {
+        if (
+          section.ref.current &&
+          scrollPosition >= section.ref.current.offsetTop
+        ) {
+          currentSection = section.id;
+        }
+      });
+
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   // Lock scrolling when any modal is open
   useEffect(() => {
     if (showTop1Modal || showTop2Modal || showTop3Modal || showSubTop1Modal || showSubTop2Modal || showSubTop3Modal) {
@@ -50,20 +84,34 @@ function SimpleBlog() {
     <div className="blog-page">
       <div className="header">
         <div className="navbar">
-          <p>Home</p>
-          <p>About</p>
-          <p>Tips</p>
-          <p>References</p>
+          <p
+            className={activeSection === "home" ? "active" : ""}
+            onClick={() => homeRef.current.scrollIntoView({ behavior: "smooth" })}
+          >
+            Home
+          </p>
+          <p
+            className={activeSection === "about" ? "active" : ""}
+            onClick={() => aboutRef.current.scrollIntoView({ behavior: "smooth" })}
+          >
+            About
+          </p>
+          <p
+            className={activeSection === "tips" ? "active" : ""}
+            onClick={() => tipsRef.current.scrollIntoView({ behavior: "smooth" })}
+          >
+            Tips
+          </p>
         </div>
       </div>
-      <div className="hero">
+      <div className="hero" ref={homeRef}>
         <div className="hero-text">
           <h1>IT Habits</h1>
           <p className="moon-dance-text">101</p>
         </div>
       </div>
       <img src={mari} className="logo"/>
-      <div className="about-section">
+      <div className="about-section" ref={aboutRef}>
         <h1>About</h1>
         <div className="about-content">
           <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
@@ -75,7 +123,7 @@ function SimpleBlog() {
         </div>
       </div>
 
-      <div className="tips-section">
+      <div className="tips-section" ref={tipsRef}>
         <h1>Top 3 Habits for Mental Stability</h1>
         <div className="pink-line"/>
         <div className="tips-list">
