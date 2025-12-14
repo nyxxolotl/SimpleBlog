@@ -10,6 +10,7 @@ function SimpleBlog() {
         <p>Home</p>
         <p>About</p>
         <p>Tips</p>
+        <p>References</p>
       </div>
       <div className="hero">
         <div className="hero-text">
@@ -57,6 +58,18 @@ function SimpleBlog() {
               <button className="read-more-bttn">Read more</button>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="references-section">
+        <div className="magenta-horizontal-line"/>
+        <h1>References</h1>
+        <div className="ref-list">
+          <ul>
+            <li>Clear, J. (2018). Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones. Avery Publishing.</li>
+            <li>World Health Organization (WHO). (2022). Mental health at work.</li>
+            <li>American Psychological Association (APA). (2020). Stress effects on the body and behavior.</li>
+            <li>Harvard Medical School. (2019). The importance of breaks and mental rest for productivity.</li>
+          </ul>
         </div>
       </div>
     </div>
