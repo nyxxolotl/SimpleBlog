@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/SimpleBlog/static/css/main.34016b6f.css",
+    "main.js": "/SimpleBlog/static/js/main.b55d053b.js",
+    "static/js/453.ececc0a5.chunk.js": "/SimpleBlog/static/js/453.ececc0a5.chunk.js",
+    "static/media/portfolio-bg.svg": "/SimpleBlog/static/media/portfolio-bg.6a9b9123a543a99d3498.svg",
+    "static/media/asdffwww.png": "/SimpleBlog/static/media/asdffwww.d4e6891dd1748ef78e96.png",
+    "static/media/logo.svg": "/SimpleBlog/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/SimpleBlog/index.html",
+    "main.34016b6f.css.map": "/SimpleBlog/static/css/main.34016b6f.css.map",
+    "main.b55d053b.js.map": "/SimpleBlog/static/js/main.b55d053b.js.map",
+    "453.ececc0a5.chunk.js.map": "/SimpleBlog/static/js/453.ececc0a5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.34016b6f.css",
+    "static/js/main.b55d053b.js"
+  ]
+}
